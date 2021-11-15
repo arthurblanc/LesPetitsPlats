@@ -1,0 +1,350 @@
+/* ---------------------------------------- */
+/* ==            SUMMARY              */
+/*---------------------------------------- */
+
+/* == VARIABLES  */
+/* == GENERAL MIXINS  */
+/* == FONT  */
+/* == GENERAL  */
+/* == HEADER  */
+/* == HOME  */
+
+/* ---------------------------------------- */
+/* ==          VARIABLES             */
+/*---------------------------------------- */
+
+$primary-color: #d04f4f;
+$secondary-color: #d3573c;
+$tertiary-color: #db8876;
+$quaternary-color: #bb2d3b;
+$quinary-color: #f2f2f2;
+$senary-color: #545454;
+
+$dark-text-color: #000;
+$light-text-color: #fff;
+
+$primary-box-shadow-color: 0 0 0 0.25rem rgba(225, 83, 97, 0.5);
+$secondary-box-shadow-color: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.25);
+
+$font-size: (
+	mobile: 4vw,
+	tablet: 2vw,
+	desktop: 1rem,
+);
+
+$breakpoints: (
+	tablet: 768px,
+	desktop: 992px,
+	big-desktop: 1200px,
+);
+
+/* ---------------------------------------- */
+/* ==        GENERAL MIXINS            */
+/*---------------------------------------- */
+@mixin tablet-breakpoint {
+	@media screen and (min-width: map-get($breakpoints, tablet)) {
+		@content;
+	}
+}
+@mixin desktop-breakpoint {
+	@media screen and (min-width: map-get($breakpoints, desktop)) {
+		@content;
+	}
+}
+@mixin big-desktop-breakpoint {
+	@media screen and (min-width: map-get($breakpoints, big-desktop)) {
+		@content;
+	}
+}
+
+@mixin no-margin {
+	margin: 0;
+}
+
+/* ---------------------------------------- */
+/* ==              FONT                 */
+/*---------------------------------------- */
+@mixin main-typography {
+	font-family: "DM Sans", serif;
+	font-size: map-get($font-size, mobile);
+	@include tablet-breakpoint {
+		font-size: map-get($font-size, tablet);
+	}
+	@include desktop-breakpoint {
+		font-size: map-get($font-size, desktop);
+	}
+}
+
+@mixin title-typography {
+	font-family: "DM Sans", serif;
+}
+
+html {
+	@include main-typography;
+}
+
+h1 {
+	@include title-typography;
+}
+
+/* ---------------------------------------- */
+/* ==            GENERAL                */
+/*---------------------------------------- */
+
+body {
+	max-width: 82.5rem;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+a {
+	color: $primary-color;
+	text-decoration: none;
+	&:hover {
+		color: $primary-color;
+		text-decoration: underline;
+	}
+}
+
+h1 {
+	color: $primary-color;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 700;
+	@include no-margin;
+}
+
+h2 {
+	@include no-margin;
+}
+
+h3 {
+	@include no-margin;
+}
+
+h4 {
+	@include no-margin;
+}
+
+h5 {
+	@include no-margin;
+}
+
+h6 {
+	@include no-margin;
+}
+
+::placeholder {
+	text-overflow: ellipsis;
+}
+
+/* ---------------------------------------- */
+/* ==            HEADER                */
+/*---------------------------------------- */
+
+.site {
+	&-logo {
+		width: 3.125rem;
+	}
+	&-title {
+		color: #d04f4f;
+		font-family: DM Sans;
+		font-size: 2.25rem;
+		font-style: normal;
+		font-weight: bold;
+		line-height: 2.9375rem;
+		text-align: center;
+	}
+}
+
+/* ---------------------------------------- */
+/* ==               HOME                   */
+/*---------------------------------------- */
+
+.search {
+	&-input {
+		height: 4.3125rem;
+		padding: 1.5rem;
+		border: none;
+		background: #e7e7e7;
+		font-family: Lato;
+		font-size: 1.125rem;
+		line-height: 1.375rem;
+		padding-right: 3.5rem;
+		@include tablet-breakpoint() {
+			padding-right: 1.5rem;
+		}
+		&::placeholder {
+			color: #000000;
+			opacity: 0.25;
+		}
+	}
+	& &-button {
+		right: 0.625rem;
+		border: none;
+		background: transparent;
+	}
+	&-logo {
+		width: 2rem;
+	}
+}
+
+.btn {
+	&-ingredients {
+		background: #3282f7;
+		border-color: #3282f7;
+	}
+	&-appliance {
+		background: #68d9a4;
+		border-color: #68d9a4;
+	}
+	&-ustensils {
+		background: #ed6454;
+		border-color: #ed6454;
+	}
+}
+
+.btn-ingredients,
+.btn-appliance,
+.btn-ustensils {
+	height: 4.3125rem;
+	width: 100%;
+	font-family: Lato;
+	font-weight: bold;
+	font-size: 1.125rem;
+	line-height: 1.375rem;
+	text-align: start;
+	padding-left: 1rem;
+
+	@include desktop-breakpoint() {
+		width: 10rem;
+	}
+}
+
+.card {
+	&-img {
+		&-top {
+			height: 11.125rem;
+			background: #c7bebe;
+		}
+	}
+	&-body {
+		background: #e7e7e7;
+	}
+	&-name {
+		font-family: Lato;
+		font-size: 1.25rem;
+		line-height: 1.375rem;
+	}
+	&-time {
+		font-family: Lato;
+		font-size: 1.125rem;
+		font-weight: bold;
+		&-watch {
+			width: 1.25rem;
+			height: 1.25rem;
+			margin-bottom: 0.3125rem;
+		}
+	}
+	&-ingredients-list {
+		font-family: Lato;
+		font-size: 0.8125rem;
+		line-height: 0.875rem;
+		&-item {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			&-ingredient {
+				font-weight: bold;
+			}
+		}
+	}
+	&-description {
+		font-family: Roboto;
+		font-size: 0.8125rem;
+		line-height: 100%;
+	}
+}
+
+#ingredients-list {
+	list-style: none;
+	padding: 0.5rem 0;
+	@include tablet-breakpoint() {
+		columns: 3;
+	}
+}
+
+#appliances-list {
+	@include tablet-breakpoint() {
+		columns: 2;
+	}
+}
+
+#ustensils-list {
+	@include tablet-breakpoint() {
+		columns: 3;
+	}
+}
+
+.btn-group {
+	display: block;
+	@include tablet-breakpoint() {
+		display: inline-flex;
+	}
+}
+
+.tags {
+	&-ingredients,
+	&-appliances,
+	&-ustensils {
+		width: 100%;
+		@include tablet-breakpoint() {
+			width: 12rem;
+		}
+	}
+}
+
+.ingredients-dropdown {
+	background: #3282f7;
+}
+
+.appliances-dropdown {
+	background: #68d9a4;
+}
+
+.ustensils-dropdown {
+	background: #ed6454;
+}
+
+.btn-tag-ingredient {
+	color: white;
+	&:focus,
+	&:hover {
+		color: #fff;
+		background-color: #0b5ed7;
+		border-color: #0a58ca;
+	}
+}
+
+.btn-tag-appliance {
+	color: white;
+	&:focus,
+	&:hover {
+		color: #fff;
+		background-color: #157347;
+		border-color: #146c43;
+	}
+}
+
+.btn-tag-ustensil {
+	color: white;
+	&:focus,
+	&:hover {
+		color: #fff;
+		background-color: #bb2d3b;
+		border-color: #b02a37;
+	}
+}
