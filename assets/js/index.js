@@ -96,10 +96,40 @@ class Homepage {
 	}
 }
 
+// Search
+const searchFunction = (searchValue) => {
+	var search = searchValue.toLowerCase();
+	recipesFilter = recipesFilter.filter(
+		(recipe) => recipe.name.toLowerCase().includes(search) || recipe.description.toLowerCase().includes(search) || recipe.ingredients.some((el) => el.ingredient.toLowerCase().includes(search))
+	);
+	homepage.recipe(recipesFilter);
+	homepage.renderIngredientsList();
+	homepage.renderAppliancesList();
+	homepage.renderUstensilsList();
+};
+
+document.getElementById("search-button").addEventListener("click", function (event) {
+	event.preventDefault();
+	var searchInput = document.getElementById("search");
+	searchFunction(searchInput.value);
+});
+
+document.getElementById("search").addEventListener("input", updateValue);
+
+function updateValue(e) {
+	recipesFilter = recipes;
+	if (e.target.value.length > 2) {
+		searchFunction(e.target.value);
+	} else {
+		searchFunction("");
+	}
+}
+
 // Init array
 var ingredientsList = [];
 var appliancesList = [];
 var ustensilsList = [];
+var recipesFilter = recipes;
 
 const homepage = new Homepage();
 homepage.recipe(recipes);
