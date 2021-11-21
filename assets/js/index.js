@@ -67,6 +67,7 @@ class Homepage {
 				this.$ingredientsListWrapper.appendChild(template.createIngredient());
 			}
 		}
+		homepage.tags("btn-tag-ingredient", "bg-primary", ingredientsList);
 	}
 
 	async renderAppliancesList() {
@@ -80,6 +81,7 @@ class Homepage {
 				this.$appliancesListWrapper.appendChild(template.createAppliance());
 			}
 		}
+		homepage.tags("btn-tag-appliance", "bg-success", appliancesList);
 	}
 
 	async renderUstensilsList() {
@@ -91,6 +93,36 @@ class Homepage {
 			const template = new UstensilsList(ustensilsList[i]);
 			if (template._ingredient != undefined) {
 				this.$ustensilsListWrapper.appendChild(template.createUstensil());
+			}
+		}
+		homepage.tags("btn-tag-ustensil", "bg-danger", ustensilsList);
+	}
+
+	async tags(className, backgroundColor, tagsList) {
+		// Tags
+		const tags = document.getElementsByClassName(className);
+		if (tags != undefined) {
+			for (let i = 0; i < tags.length; i++) {
+				tags[i].addEventListener("click", function () {
+					const tagsContainer = document.getElementById("tags-container");
+					const newTags = document.getElementById(tags[i].value);
+					if (newTags === undefined || newTags === null) {
+						tagsContainer.innerHTML += `
+							<div id="${tags[i].value.split(" ").join("-")}" class="tags badge tag-${tags[i].value.split(" ").join("-")} ${backgroundColor} px-3 py-2 me-3 rounded">
+								<span>${tags[i].value.charAt(0).toUpperCase() + tags[i].value.slice(1)}</span>
+								<button id="btn-close-${tags[i].value.split(" ").join("-")}" type="button" class="btn-close btn-close-white btn-tag-close align-middle" aria-label="Close"></button>
+							</div>`;
+						tagsList.push(tags[i].value);
+						searchFunction(tags[i].value);
+
+						var searchValue = document.getElementById("search");
+						if (searchValue.value.length > 2) {
+							searchFunction(searchValue.value);
+						} else {
+							searchFunction("");
+						}
+					}
+				});
 			}
 		}
 	}
