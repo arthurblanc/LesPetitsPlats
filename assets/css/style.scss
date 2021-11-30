@@ -269,6 +269,12 @@ h6 {
 	}
 }
 
+.tags {
+	font-family: Lato;
+	font-size: 0.875rem;
+	line-height: 1.0625rem;
+}
+
 #ingredients-list {
 	list-style: none;
 	padding: 0.5rem 0;
@@ -304,6 +310,19 @@ h6 {
 		@include tablet-breakpoint() {
 			width: 12rem;
 		}
+	}
+}
+
+#search-ingredient {
+	background: #3282f7;
+	color: white;
+	&::placeholder {
+		color: white;
+		opacity: 0.5;
+	}
+	&:focus-visible {
+		border: none;
+		outline: none;
 	}
 }
 

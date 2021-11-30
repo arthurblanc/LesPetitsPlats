@@ -255,6 +255,12 @@ h6 {
   line-height: 100%;
 }
 
+.tags {
+  font-family: Lato;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+}
+
 #ingredients-list {
   list-style: none;
   padding: 0.5rem 0;
@@ -301,6 +307,36 @@ h6 {
   .tags-ingredients, .tags-appliances, .tags-ustensils {
     width: 12rem;
   }
+}
+
+#search-ingredient {
+  background: #3282f7;
+  color: white;
+}
+
+#search-ingredient::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-ingredient:-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-ingredient::-ms-input-placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-ingredient::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+#search-ingredient:focus-visible {
+  border: none;
+  outline: none;
 }
 
 .ingredients-dropdown {

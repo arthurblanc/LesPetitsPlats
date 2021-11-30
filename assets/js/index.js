@@ -184,6 +184,14 @@ class Homepage {
 				homepage.renderUstensilsList();
 			});
 		}
+
+		const tags = document.getElementsByClassName("btn-tag-ingredient");
+		if (tags != undefined) {
+			for (let i = 0; i < tags.length; i++) {
+				const searchTags = document.getElementById("search-ingredient");
+				searchTags.value = "";
+			}
+		}
 	}
 }
 
@@ -199,6 +207,7 @@ var tagList = [ingredientsForTagsList, appliancesForTagsList, ustensilsForTagsLi
 var recipesFilterByTags = recipesFilter;
 var ingredientsListFiltered = ingredientsList;
 
+// Search with tags
 const searchByTags = () => {
 	if (ingredientsForTagsList.length === 0 && appliancesForTagsList.length === 0 && ustensilsForTagsList.length === 0) {
 		recipesFilter = recipes;
@@ -308,12 +317,31 @@ document.getElementById("search").addEventListener("input", updateValue);
 
 function updateValue(e) {
 	recipesFilterByTags = recipesFilter;
+	recipesFilterByTags = recipesFilter;
 	if (e.target.value.length > 2) {
 		mainSearchbar(e.target.value);
 	} else {
 		mainSearchbar("");
 	}
 }
+
+// search Tags
+document.getElementById("search-ingredient").addEventListener("input", updateValueForIngredient);
+
+function updateValueForIngredient(e) {
+	ingredientsListFiltered = ingredientsList;
+	if (e.target.value.length > 0) {
+		tagsSearch(e.target.value);
+	} else {
+		tagsSearch("");
+	}
+}
+
+const tagsSearch = (searchValue) => {
+	var search = searchValue.toLowerCase();
+	ingredientsListFiltered = ingredientsListFiltered.filter((ingredient) => ingredient.toLowerCase().includes(search));
+	homepage.renderIngredientsList();
+};
 
 const homepage = new Homepage();
 homepage.recipe(recipes);
