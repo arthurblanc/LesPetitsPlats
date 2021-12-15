@@ -182,7 +182,7 @@ h6 {
 			opacity: 0.25;
 		}
 	}
-	& &-button {
+	& &-img {
 		right: 0.625rem;
 		border: none;
 		background: transparent;
@@ -205,6 +205,18 @@ h6 {
 		background: #ed6454;
 		border-color: #ed6454;
 	}
+
+	&-ingredients,
+	&-ustensils {
+		&.btn-tag-open {
+			width: 36rem;
+		}
+	}
+	&-appliance {
+		&.btn-tag-open {
+			width: 24rem;
+		}
+	}
 }
 
 .btn-ingredients,
@@ -221,6 +233,9 @@ h6 {
 
 	@include desktop-breakpoint() {
 		width: 10rem;
+	}
+	&:disabled {
+		opacity: 1;
 	}
 }
 
@@ -281,17 +296,30 @@ h6 {
 	@include tablet-breakpoint() {
 		columns: 3;
 	}
+	&.one-column {
+		columns: 1;
+	}
 }
 
 #appliances-list {
+	list-style: none;
+	padding: 0.5rem 0;
 	@include tablet-breakpoint() {
 		columns: 2;
+	}
+	&.one-column {
+		columns: 1;
 	}
 }
 
 #ustensils-list {
+	list-style: none;
+	padding: 0.5rem 0;
 	@include tablet-breakpoint() {
 		columns: 3;
+	}
+	&.one-column {
+		columns: 1;
 	}
 }
 
@@ -308,14 +336,16 @@ h6 {
 	&-ustensils {
 		width: 100%;
 		@include tablet-breakpoint() {
-			width: 12rem;
+			width: 11.3rem;
 		}
 	}
 }
 
-#search-ingredient {
-	background: #3282f7;
+#search-ingredient,
+#search-appliance,
+#search-ustensil {
 	color: white;
+	background: transparent;
 	&::placeholder {
 		color: white;
 		opacity: 0.5;
@@ -326,16 +356,33 @@ h6 {
 	}
 }
 
+#form-ingredient,
+#form-appliance,
+#form-ustensil {
+	display: inline;
+	.search-input {
+		height: unset;
+		padding: unset;
+		width: 95%;
+	}
+}
+
 .ingredients-dropdown {
 	background: #3282f7;
+	width: 36rem;
+	border: none;
 }
 
 .appliances-dropdown {
 	background: #68d9a4;
+	width: 24rem;
+	border: none;
 }
 
 .ustensils-dropdown {
 	background: #ed6454;
+	width: 36rem;
+	border: none;
 }
 
 .btn-tag-ingredient {
@@ -366,4 +413,12 @@ h6 {
 		background-color: #bb2d3b;
 		border-color: #b02a37;
 	}
+}
+.dropdown-item {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.hide {
+	display: none !important;
 }

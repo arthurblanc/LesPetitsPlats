@@ -11,13 +11,13 @@ class RecipeCard {
 
 		let cardIngredients = "";
 		for (let ingredient of this._recipe._ingredients) {
-			var ingredientQuantity = "";
+			const ingredientQuantity = "";
 			if (ingredient.quantity) {
-				var ingredientQuantity = `: ${ingredient.quantity}`;
+				const ingredientQuantity = `: ${ingredient.quantity}`;
 			}
-			var ingredientUnit = "";
+			const ingredientUnit = "";
 			if (ingredient.unit) {
-				var ingredientUnit = `${ingredient.unit}`;
+				const ingredientUnit = `${ingredient.unit}`;
 			}
 			const ingredients = `
             <li class="card-ingredients-list-item">
@@ -50,4 +50,3 @@ class RecipeCard {
 		return $wrapper;
 	}
 }
-export { RecipeCard };
