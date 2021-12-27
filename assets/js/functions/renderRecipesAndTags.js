@@ -7,7 +7,7 @@ const renderRecipesAndTags = (recipes) => {
 	appliancesListFiltered = appliancesList;
 	ustensilsListFiltered = ustensilsList;
 	// Render tags
-	homepage.renderIngredientsList(ingredientsListFiltered);
+	homepage.renderIngredientsList(ingredientsList);
 	homepage.renderAppliancesList(appliancesList);
 	homepage.renderUstensilsList(ustensilsList);
 };

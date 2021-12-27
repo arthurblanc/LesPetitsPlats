@@ -197,16 +197,37 @@ h6 {
 
 .btn-ingredients.btn-tag-open,
 .btn-ustensils.btn-tag-open {
-	width: 36rem;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.btn-ingredients.btn-tag-open,
+	.btn-ustensils.btn-tag-open {
+		width: 24rem;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.btn-ingredients.btn-tag-open,
+	.btn-ustensils.btn-tag-open {
+		width: 36rem;
+	}
 }
 
 .btn-appliance.btn-tag-open {
-	width: 24rem;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.btn-appliance.btn-tag-open {
+		width: 24rem;
+	}
 }
 
 .btn-ingredients,
 .btn-appliance,
 .btn-ustensils {
+	position: relative;
 	height: 4.3125rem;
 	width: 100%;
 	font-family: Lato;
@@ -217,11 +238,21 @@ h6 {
 	padding-left: 1rem;
 }
 
+@media screen and (min-width: 768px) {
+	.btn-ingredients,
+	.btn-appliance,
+	.btn-ustensils {
+		width: 8.5rem;
+		font-size: 1rem;
+	}
+}
+
 @media screen and (min-width: 992px) {
 	.btn-ingredients,
 	.btn-appliance,
 	.btn-ustensils {
 		width: 10rem;
+		font-size: 1.125rem;
 	}
 }
 
@@ -229,6 +260,46 @@ h6 {
 .btn-appliance:disabled,
 .btn-ustensils:disabled {
 	opacity: 1;
+}
+
+.btn-ingredients::after,
+.btn-appliance::after,
+.btn-ustensils::after {
+	display: none;
+}
+
+.btn-ingredients.show .dropdown-arrow,
+.btn-appliance.show .dropdown-arrow,
+.btn-ustensils.show .dropdown-arrow {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	    transform: rotate(180deg);
+}
+
+.dropdown-arrow {
+	width: 1rem;
+	height: 1.5rem;
+	position: absolute;
+	right: 1rem;
+	transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+
+@media screen and (min-width: 768px) {
+	.dropdown-arrow {
+		width: 0.9rem;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.dropdown-arrow {
+		width: 1rem;
+	}
+}
+
+.tag-close-btn {
+	background: transparent;
+	border: none;
+	width: 1.5rem;
 }
 
 .card-img-top {
@@ -287,12 +358,38 @@ h6 {
 	line-height: 1.0625rem;
 }
 
+.tags.bg-primary {
+	-webkit-box-ordinal-group: 2;
+	-ms-flex-order: 1;
+	order: 1;
+}
+
+.tags.bg-success {
+	-webkit-box-ordinal-group: 3;
+	-ms-flex-order: 2;
+	order: 2;
+}
+
+.tags.bg-danger {
+	-webkit-box-ordinal-group: 4;
+	-ms-flex-order: 3;
+	order: 3;
+}
+
 #ingredients-list {
 	list-style: none;
 	padding: 0.5rem 0;
 }
 
 @media screen and (min-width: 768px) {
+	#ingredients-list {
+		-webkit-columns: 2;
+		-moz-columns: 2;
+		     columns: 2;
+	}
+}
+
+@media screen and (min-width: 992px) {
 	#ingredients-list {
 		-webkit-columns: 3;
 		-moz-columns: 3;
@@ -331,6 +428,14 @@ h6 {
 }
 
 @media screen and (min-width: 768px) {
+	#ustensils-list {
+		-webkit-columns: 2;
+		-moz-columns: 2;
+		     columns: 2;
+	}
+}
+
+@media screen and (min-width: 992px) {
 	#ustensils-list {
 		-webkit-columns: 3;
 		-moz-columns: 3;
@@ -448,20 +553,20 @@ h6 {
 
 .ingredients-dropdown {
 	background: #3282f7;
-	width: 36rem;
 	border: none;
+	width: 100%;
 }
 
 .appliances-dropdown {
 	background: #68d9a4;
-	width: 24rem;
 	border: none;
+	width: 100%;
 }
 
 .ustensils-dropdown {
 	background: #ed6454;
-	width: 36rem;
 	border: none;
+	width: 100%;
 }
 
 .btn-tag-ingredient {

@@ -98,9 +98,11 @@ class Homepage {
 						if (tagsArrayList.indexOf(tags[i].value) === -1) {
 							// Generate the HTML of the tag
 							tagsContainer.innerHTML += `
-							<div id="${tags[i].value.split(" ").join("-")}" class="tags badge tag-${tags[i].value.split(" ").join("-")} ${backgroundColor} px-3 py-2 me-3 rounded">
+							<div id="${tags[i].value.split(" ").join("-")}" class="tags badge tag-${tags[i].value.split(" ").join("-")} ${backgroundColor} ps-3 pe-2 py-2 me-3 mb-2 rounded">
 								<span>${tags[i].value.charAt(0).toUpperCase() + tags[i].value.slice(1)}</span>
-								<button id="btn-close-${tags[i].value.split(" ").join("-")}" type="button" class="btn-close btn-close-white btn-tag-close align-middle" aria-label="Close"></button>
+								<button id="btn-close-${tags[i].value.split(" ").join("-")}" type="button" class="tag-close-btn align-middle ms-1" aria-label="Close">
+									<img src="./assets/img/tag-close.svg" alt="" aria-hidden="true">
+								</button>
 							</div>`;
 							// Add the tag to the activated tag array
 							tagsArrayList.push(tags[i].value);
@@ -171,7 +173,16 @@ for (let i = 0; i < formDOM.length; i++) {
 	});
 }
 // array of objects for dropdown searchInTags
-const searchTags = [
+const updateSearchTags = () => {
+	searchTags[0].array = ingredientsList;
+	searchTags[0].arrayFiltered = ingredientsListFiltered;
+	searchTags[1].array = appliancesList;
+	searchTags[1].arrayFiltered = appliancesListFiltered;
+	searchTags[2].array = ustensilsList;
+	searchTags[2].arrayFiltered = ustensilsListFiltered;
+};
+
+let searchTags = [
 	{
 		input: document.getElementById("search-ingredient"),
 		array: ingredientsList,
@@ -211,6 +222,7 @@ for (let i = 0; i < btnTagDOM.length; i++) {
 	});
 	// Listener on close for each dropdown
 	btnTagDOM[i].addEventListener("hidden.bs.dropdown", function () {
+		updateSearchTags();
 		btnTagClose(btnTagDOM[i], formDOM[i], "btn-tag-open", searchTags[i].input, searchTags[i].array, searchTags[i].arrayFiltered, searchTags[i].renderListFunction, searchTags[i].wrapper);
 	});
 }

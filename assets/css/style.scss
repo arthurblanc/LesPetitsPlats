@@ -209,12 +209,21 @@ h6 {
 	&-ingredients,
 	&-ustensils {
 		&.btn-tag-open {
-			width: 36rem;
+			width: 100%;
+			@include tablet-breakpoint() {
+				width: 24rem;
+			}
+			@include desktop-breakpoint() {
+				width: 36rem;
+			}
 		}
 	}
 	&-appliance {
 		&.btn-tag-open {
-			width: 24rem;
+			width: 100%;
+			@include tablet-breakpoint() {
+				width: 24rem;
+			}
 		}
 	}
 }
@@ -222,6 +231,7 @@ h6 {
 .btn-ingredients,
 .btn-appliance,
 .btn-ustensils {
+	position: relative;
 	height: 4.3125rem;
 	width: 100%;
 	font-family: Lato;
@@ -231,12 +241,48 @@ h6 {
 	text-align: start;
 	padding-left: 1rem;
 
+	@include tablet-breakpoint() {
+		width: 8.5rem;
+		font-size: 1rem;
+	}
 	@include desktop-breakpoint() {
 		width: 10rem;
+		font-size: 1.125rem;
 	}
 	&:disabled {
 		opacity: 1;
 	}
+	&::after {
+		display: none;
+	}
+}
+
+.btn-ingredients.show,
+.btn-appliance.show,
+.btn-ustensils.show {
+	.dropdown-arrow {
+		transform: rotate(180deg);
+	}
+}
+
+.dropdown-arrow {
+	width: 1rem;
+	height: 1.5rem;
+	position: absolute;
+	right: 1rem;
+	transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+	@include tablet-breakpoint() {
+		width: 0.9rem;
+	}
+	@include desktop-breakpoint() {
+		width: 1rem;
+	}
+}
+
+.tag-close-btn {
+	background: transparent;
+	border: none;
+	width: 1.5rem;
 }
 
 .card {
@@ -288,12 +334,24 @@ h6 {
 	font-family: Lato;
 	font-size: 0.875rem;
 	line-height: 1.0625rem;
+	&.bg-primary {
+		order: 1;
+	}
+	&.bg-success {
+		order: 2;
+	}
+	&.bg-danger {
+		order: 3;
+	}
 }
 
 #ingredients-list {
 	list-style: none;
 	padding: 0.5rem 0;
 	@include tablet-breakpoint() {
+		columns: 2;
+	}
+	@include desktop-breakpoint() {
 		columns: 3;
 	}
 	&.one-column {
@@ -316,6 +374,9 @@ h6 {
 	list-style: none;
 	padding: 0.5rem 0;
 	@include tablet-breakpoint() {
+		columns: 2;
+	}
+	@include desktop-breakpoint() {
 		columns: 3;
 	}
 	&.one-column {
@@ -369,20 +430,20 @@ h6 {
 
 .ingredients-dropdown {
 	background: #3282f7;
-	width: 36rem;
 	border: none;
+	width: 100%;
 }
 
 .appliances-dropdown {
 	background: #68d9a4;
-	width: 24rem;
 	border: none;
+	width: 100%;
 }
 
 .ustensils-dropdown {
 	background: #ed6454;
-	width: 36rem;
 	border: none;
+	width: 100%;
 }
 
 .btn-tag-ingredient {

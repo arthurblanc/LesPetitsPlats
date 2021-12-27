@@ -10,7 +10,7 @@ const btnTagOpen = (btnTag, form, btnTagOpenClass, searchInput) => {
 	searchInput.focus();
 };
 // Function to reduce, show title and enable dropdown button & hide and reset searchInput
-const btnTagClose = (btnTag, form, btnTagOpenClass, searchInput, searchArray, searchArrayFiltered, renderList, wrapper) => {
+const btnTagClose = (btnTag, form, btnTagOpenClass, searchInput, searchArray, searchArrayFiltered, renderListFunction, wrapper) => {
 	const btnTitle = btnTag.getElementsByClassName("btn-tag-title");
 
 	btnTitle[0].classList.remove("hide");
@@ -19,5 +19,5 @@ const btnTagClose = (btnTag, form, btnTagOpenClass, searchInput, searchArray, se
 	btnTag.removeAttribute("disabled");
 
 	searchInput.value = "";
-	searchInTags(searchInput, searchArray, searchArrayFiltered, renderList, wrapper);
+	searchInTags(searchInput, searchArray, searchArrayFiltered, renderListFunction, wrapper);
 };
