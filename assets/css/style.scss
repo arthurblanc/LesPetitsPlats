@@ -141,6 +141,14 @@ h6 {
 	text-overflow: ellipsis;
 }
 
+.vertical-center {
+	margin: 0;
+	position: relative;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
 /* ---------------------------------------- */
 /* ==            HEADER                */
 /*---------------------------------------- */
@@ -269,7 +277,7 @@ h6 {
 	width: 1rem;
 	height: 1.5rem;
 	position: absolute;
-	right: 1rem;
+	right: 0rem;
 	transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 	@include tablet-breakpoint() {
 		width: 0.9rem;
