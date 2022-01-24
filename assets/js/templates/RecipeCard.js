@@ -36,7 +36,7 @@ class RecipeCard {
             <div class="card-body">
                 <div class="row mb-2">
                     <h2 class="card-title col-8 card-name">${this._recipe._name}</h2>
-                    <div class="card-title col-4 text-end card-time-container"><img class="me-1 card-time-watch" src="./assets/img/watch-time.svg"><span class="card-time">${this._recipe._time} min</span></div>
+                    <div class="card-title col-4 text-end card-time-container"><img class="me-1 card-time-watch" alt="" src="./assets/img/watch-time.svg"><span class="card-time">${this._recipe._time} min</span></div>
                 </div>
                 <div class="row">
                     <ul class="card-text col-6 list-unstyled card-ingredients-list">${cardIngredients}</ul>
