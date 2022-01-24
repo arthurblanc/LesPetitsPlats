@@ -31,6 +31,7 @@
 				<div class="mb-4 row">
 					<div class="search position-relative">
 						<form id="form" role="search" autocomplete="off">
+							<label class="visually-hidden" for="search">Main search</label>
 							<input id="search" class="search-input col-12 rounded" type="text" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette" />
 							<div class="search-img position-absolute top-50 translate-middle">
 								<img class="search-logo" alt="" src="./assets/img/search.svg" />
@@ -48,6 +49,8 @@
 								<span class="btn-tag-title">Ingrédients</span>
 								<img src="./assets/img/dropdown.svg" alt="" class="ms-3 dropdown-arrow" aria-hidden="true" />
 								<form id="form-ingredient" role="search" autocomplete="off" class="hide">
+									<label class="visually-hidden" for="search-ingredient">Ingredient Tag Search</label>
+
 									<input id="search-ingredient" class="search-input col-12 rounded" type="text" placeholder="Rechercher un ingrédient" />
 								</form>
 							</div>
@@ -62,11 +65,11 @@
 								<span class="btn-tag-title">Appareil</span>
 								<img src="./assets/img/dropdown.svg" alt="" class="ms-3 dropdown-arrow" aria-hidden="true" />
 								<form id="form-appliance" role="search" autocomplete="off" class="hide">
+									<label class="visually-hidden" for="search-appliance">Appliance Tag Search</label>
 									<input id="search-appliance" class="search-input col-12 rounded" type="text" placeholder="Rechercher un appareil" />
 								</form>
 							</div>
 						</div>
-
 						<div class="dropdown-menu appliances-dropdown rounded-0 rounded-bottom" aria-labelledby="dropdownAppliances">
 							<ul id="appliances-list"></ul>
 						</div>
@@ -77,6 +80,7 @@
 								<span class="btn-tag-title">Ustensiles</span>
 								<img src="./assets/img/dropdown.svg" alt="" class="ms-3 dropdown-arrow" aria-hidden="true" />
 								<form id="form-ustensil" role="search" autocomplete="off" class="hide">
+									<label class="visually-hidden" for="search-ustensil">Ustensil Tag Search</label>
 									<input id="search-ustensil" class="search-input col-12 rounded" type="text" placeholder="Rechercher un ustensile" />
 								</form>
 							</div>
